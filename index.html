@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dietary Guidelines for Americans 2025–2030 | 美國人飲食指南 2025–2030</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;700;900&family=Merriweather:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5F2E8;
+            --green-dark: #4A7C59;
+            --green-light: #E8F4E8;
+            --blue-light: #D6EAF8;
+            --blue-dark: #1B4F72;
+            --text-dark: #2C3E50;
+            --text-black: #000000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', 'Noto Sans TC', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: white;
+        }
+        
+        /* Page break controls for PDF */
+        .page {
+            page-break-after: always;
+            page-break-inside: avoid;
+            padding: 0.75in;
+            max-width: 100%;
+            min-height: 10in;
+        }
+        
+        .page:last-child {
+            page-break-after: auto;
+        }
+        
+        /* Prevent breaks inside important elements */
+        .content-box,
+        .info-box,
+        .bilingual-section,
+        .signatures-bilingual,
+        .section-header {
+            page-break-inside: avoid;
+        }
+        
+        h1, h2, h3 {
+            page-break-after: avoid;
+        }
+        
+        .bilingual-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .english-side {
+            border-right: 3px solid var(--green-light);
+            padding-right: 1.5rem;
+        }
+        
+        .chinese-side {
+            padding-left: 1.5rem;
+        }
+        
+        .language-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--green-dark);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--green-dark);
+        }
+        
+        /* Cover Page */
+        .cover {
+            background: var(--cream);
+            padding: 2.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 10in;
+        }
+        
+        .cover-title-group {
+            margin: 2rem 0;
+        }
+        
+        .cover-title-en {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--text-black);
+            margin-bottom: 1rem;
+        }
+        
+        .cover-title-zh {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--text-black);
+        }
+        
+        .cover-illustration {
+            margin: 2rem 0;
+            font-size: 3rem;
+        }
+        
+        .food-groups-bilingual {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .food-group-item {
+            text-align: center;
+        }
+        
+        .food-group-en {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .food-group-zh {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+        
+        .cover-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+        }
+        
+        /* Section Headers */
+        .section-header {
+            background: var(--green-dark);
+            color: white;
+            padding: 1.2rem 1.5rem;
+            margin: 0 -0.75in 1.5rem -0.75in;
+            font-size: 1.6rem;
+            font-weight: 700;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .section-header-en {
+            text-align: left;
+            font-family: 'Merriweather', serif;
+        }
+        
+        .section-header-zh {
+            text-align: right;
+            font-family: 'Noto Serif TC', serif;
+        }
+        
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--green-dark);
+            margin: 1.2rem 0 0.6rem;
+            padding: 0.6rem 0.8rem;
+            background: var(--green-light);
+            border-radius: 8px;
+        }
+        
+        /* Content Boxes */
+        .content-box {
+            background: var(--green-light);
+            padding: 1.2rem;
+            border-radius: 10px;
+            margin: 0.8rem 0;
+        }
+        
+        .info-box {
+            background: var(--blue-light);
+            padding: 1.2rem;
+            border-radius: 10px;
+            margin: 0.8rem 0;
+            border-left: 4px solid var(--blue-dark);
+        }
+        
+        .info-box h3 {
+            color: var(--blue-dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+        }
+        
+        /* Typography */
+        .intro-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0.9rem 0;
+        }
+        
+        .emphasis {
+            font-weight: 700;
+            color: var(--green-dark);
+        }
+        
+        .bold-message {
+            font-weight: 700;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 1.2rem 0;
+        }
+        
+        /* Lists */
+        ul {
+            margin: 0.8rem 0 0.8rem 1.3rem;
+            line-height: 1.7;
+        }
+        
+        li {
+            margin: 0.4rem 0;
+            padding-left: 0.4rem;
+            font-size: 0.9rem;
+        }
+        
+        li::marker {
+            color: var(--green-dark);
+            font-weight: 700;
+        }
+        
+        /* Signatures */
+        .signatures-bilingual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .signature-pair {
+            border-top: 2px solid var(--text-dark);
+            padding-top: 0.8rem;
+        }
+        
+        .signature-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .signature-title {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.4rem;
+        }
+        
+        /* Page Footer */
+        .page-footer {
+            margin-top: auto;
+            padding-top: 0.8rem;
+            font-size: 0.75rem;
+            color: #666;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+        
+        /* Print-specific styles */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .page {
+                margin: 0;
+                padding: 0.5in;
+                box-shadow: none;
+            }
+            
+            @page {
+                size: letter;
+                margin: 0.5in;
+            }
+        }
+        
+        /* Responsive for screen viewing */
+        @media screen and (max-width: 1024px) {
+            .bilingual-section {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .english-side {
+                border-right: none;
+                border-bottom: 3px solid var(--green-light);
+                padding-right: 0;
+                padding-bottom: 1.5rem;
+            }
+            
+            .chinese-side {
+                padding-left: 0;
+                padding-top: 1.5rem;
+            }
+            
+            .section-header {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+            
+            .section-header-zh {
+                text-align: left;
+            }
+        }
+        
+        /* html2pdf.js specific page break class */
+        .html2pdf__page-break {
+            page-break-before: always;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Cover Page -->
+<div class="page cover">
+    <div>
+        <div class="cover-title-group">
+            <div class="cover-title-en">Dietary Guidelines For Americans</div>
+            <div class="cover-title-zh">美國人飲食指南</div>
+        </div>
+        
+        <div class="cover-illustration">
+            🥩🥛🥑🥗🍎🌾
+        </div>
+        
+        <div class="food-groups-bilingual">
+            <div class="food-group-item">
+                <div class="food-group-en">Protein, Dairy<br>& Healthy Fats</div>
+                <div class="food-group-zh">蛋白質、乳製品<br>與健康脂肪</div>
+            </div>
+            <div class="food-group-item">
+                <div class="food-group-en">Vegetables<br>& Fruits</div>
+                <div class="food-group-zh">蔬菜<br>與水果</div>
+            </div>
+            <div class="food-group-item">
+                <div class="food-group-en">Whole<br>Grains</div>
+                <div class="food-group-zh">全穀物</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="cover-footer">
+        <span>realfood.gov</span>
+        <span><strong>2025–2030</strong></span>
+    </div>
+</div>
+
+<!-- Message Page 1 -->
+<div class="page">
+    <div class="section-header">
+        <div class="section-header-en">Message from the Secretaries</div>
+        <div class="section-header-zh">部長致詞</div>
+    </div>
+    
+    <div class="bilingual-section">
+        <div class="english-side">
+            <div class="language-label">English</div>
+            
+            <p class="intro-text">Welcome to the <em>Dietary Guidelines for Americans, 2025–2030</em>.</p>
+            
+            <p class="intro-text">These Guidelines mark the most significant reset of federal nutrition policy in our nation's history.</p>
+            
+            <p class="bold-message emphasis">The message is simple: eat real food.</p>
+            
+            <p class="intro-text">To Make America Healthy Again, we must return to the basics. American households must prioritize diets built on whole, nutrient-dense foods—protein, dairy, vegetables, fruits, healthy fats, and whole grains. Paired with a dramatic reduction in highly processed foods laden with refined carbohydrates, added sugars, excess sodium, unhealthy fats, and chemical additives, this approach can change the health trajectory for so many Americans.</p>
+            
+            <p class="intro-text">The United States is amid a health emergency. Nearly 90% of health care spending goes to treating people who have chronic diseases. Many of these illnesses are not genetic destiny; they are the predictable result of the Standard American Diet—a diet which, over time, has become reliant on highly processed foods and coupled with a sedentary lifestyle.</p>
+            
+            <p class="intro-text">The consequences have been devastating. More than 70% of American adults are overweight or obese. Nearly one in three American adolescents between the ages of 12 and 17 has prediabetes. Diet-driven chronic disease now disqualifies large numbers of young Americans from military service, undermining national readiness and cutting off a historic pathway to opportunity and upward mobility.</p>
+        </div>
+        
+        <div class="chinese-side">
+            <div class="language-label">繁體中文 Traditional Chinese</div>
+            
+            <p class="intro-text">歡迎參閱《美國人飲食指南，2025–2030》。</p>
+            
+            <p class="intro-text">這些指南標誌著我國聯邦營養政策史上最重大的改革。</p>
+            
+            <p class="bold-message emphasis">訊息很簡單：食用真正的食物。</p>
+            
+            <p class="intro-text">為了讓美國再次健康，我們必須回歸基本。美國家庭必須優先考慮以完整、營養密集的食物為基礎的飲食——蛋白質、乳製品、蔬菜、水果、健康脂肪和全穀物。配合大幅減少攝取充滿精製碳水化合物、添加糖、過量鈉、不健康脂肪和化學添加劑的高度加工食品，這種方法可以改變眾多美國人的健康軌跡。</p>
+            
+            <p class="intro-text">美國正處於健康緊急狀態。近90%的醫療支出用於治療患有慢性疾病的人群。這些疾病中有許多並非遺傳命運；它們是「標準美式飲食」的可預見結果——這種飲食隨著時間推移，已變得依賴高度加工食品，並伴隨著久坐不動的生活方式。</p>
+            
+            <p class="intro-text">後果是毀滅性的。超過70%的美國成年人體重過重或肥胖。在12至17歲之間的美國青少年中，近三分之一患有前期糖尿病。由飲食引起的慢性疾病現在使大量年輕美國人失去服兵役的資格，削弱了國家戰備能力，並切斷了通往機會和向上流動的歷史途徑。</p>
+        </div>
+    </div>
+    
+    <div class="page-footer">Page 1</div>
+</div>
+
+<!-- Message Page 2 -->
+<div class="page">
+    <div class="bilingual-section">
+        <div class="english-side">
+            <p class="intro-text">For decades, federal incentives have promoted low-quality, highly processed foods and pharmaceutical intervention instead of prevention. This crisis is the result of poor policy choices; inadequate nutrition research; and a lack of coordination across federal, state, local, and private partners.</p>
+            
+            <p class="bold-message emphasis">This changes today.</p>
+            
+            <p class="intro-text">We are realigning our food system to support American farmers, ranchers, and companies who grow and produce real food—and the Trump administration is working to ensure all families can afford it.</p>
+            
+            <p class="bold-message">We are putting real food back at the center of the American diet. Real food that nourishes the body. Real food that restores health. Real food that fuels energy and encourages movement and exercise. Real food that builds strength.</p>
+            
+            <p class="intro-text">Under President Trump's leadership, we are restoring common sense, scientific integrity, and accountability to federal food and health policy—and we are reclaiming the food pyramid and returning it to its true purpose of educating and nourishing all Americans.</p>
+            
+            <p class="intro-text">These Guidelines call on every American to eat more real food. They call on farmers, ranchers, health care professionals, insurers, educators, community leaders, industry, and lawmakers across all levels of government to join in this critical effort.</p>
+            
+            <p class="intro-text">Together, we can shift our food system away from chronic disease and toward nutrient density, nourishment, resilience, and long-term health.</p>
+            
+            <p class="intro-text">America's future depends on what we grow, what we serve, and what we choose to eat.</p>
+            
+            <p class="bold-message emphasis">This is the foundation that will Make America Healthy Again.</p>
+            
+            <p class="intro-text">Welcome to the Dietary Guidelines for Americans, 2025–2030.</p>
+        </div>
+        
+        <div class="chinese-side">
+            <p class="intro-text">數十年來，聯邦激勵措施一直在推廣低品質、高度加工的食品和藥物干預，而非預防。這場危機是不良政策選擇、營養研究不足以及聯邦、州、地方和私營夥伴之間缺乏協調的結果。</p>
+            
+            <p class="bold-message emphasis">今日起，這一切將改變。</p>
+            
+            <p class="intro-text">我們正在重新調整我們的食品系統，以支持種植和生產真正食物的美國農民、牧場主和公司——川普政府正在努力確保所有家庭都能負擔得起。</p>
+            
+            <p class="bold-message">我們正在將真正的食物重新置於美國飲食的中心。滋養身體的真正食物。恢復健康的真正食物。提供能量並鼓勵運動和鍛鍊的真正食物。增強體力的真正食物。</p>
+            
+            <p class="intro-text">在川普總統的領導下，我們正在恢復聯邦食品和健康政策的常識、科學誠信和問責制——我們正在收回食物金字塔，並使其回歸教育和滋養所有美國人的真正目的。</p>
+            
+            <p class="intro-text">這些指南呼籲每位美國人食用更多真正的食物。它們呼籲各級政府的農民、牧場主、醫療保健專業人員、保險公司、教育工作者、社區領袖、產業界和立法者加入這項重要工作。</p>
+            
+            <p class="intro-text">我們可以共同將我們的食品系統從慢性疾病轉向營養密度、滋養、韌性和長期健康。</p>
+            
+            <p class="intro-text">美國的未來取決於我們種植什麼、我們供應什麼以及我們選擇吃什麼。</p>
+            
+            <p class="bold-message emphasis">這是讓美國再次健康的基礎。</p>
+            
+            <p class="intro-text">歡迎參閱《美國人飲食指南，2025–2030》。</p>
+        </div>
+    </div>
+    
+    <div class="signatures-bilingual">
+        <div class="signature-pair">
+            <div class="signature-name">Robert F. Kennedy, Jr.</div>
+            <div class="signature-name">小羅伯特·F·甘迺迪</div>
+            <div class="signature-title">Secretary, U.S. Department of Health and Human Services</div>
+            <div class="signature-title">美國衛生及公共服務部部長</div>
+        </div>
+        <div class="signature-pair">
+            <div class="signature-name">Brooke L. Rollins</div>
+            <div class="signature-name">布魯克·L·羅林斯</div>
+            <div class="signature-title">Secretary, U.S. Department of Agriculture</div>
+            <div class="signature-title">美國農業部部長</div>
+        </div>
+    </div>
+    
+    <div class="page-footer">Page 2</div>
+</div>
+
+<!-- Guidelines Page 1 -->
+<div class="page">
+    <div class="bilingual-section">
+        <div class="english-side">
+            <div class="language-label">English</div>
+            
+            <h2 class="subsection-title">Eat the Right Amount for You</h2>
+            <div class="content-box">
+                <ul>
+                    <li>The calories you need depend on your age, sex, height, weight, and level of physical activity.</li>
+                    <li>Pay attention to portion sizes, particularly for foods and beverages higher in calories.</li>
+                    <li>Hydration is a key factor in overall health. Choose water (still or sparkling) and unsweetened beverages.</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">Prioritize Protein Foods at Every Meal</h2>
+            <div class="content-box">
+                <ul>
+                    <li>Prioritize high-quality, nutrient-dense protein foods as part of a healthy dietary pattern.</li>
+                    <li>Consume a variety of protein foods from animal sources, including eggs, poultry, seafood, and red meat, as well as plant-sourced protein foods.</li>
+                    <li>Swap deep-fried cooking methods with baked, broiled, roasted, stir-fried, or grilled cooking methods.</li>
+                    <li>Consume meat with no or limited added sugars, refined carbohydrates, or chemical additives.</li>
+                    <li>Protein serving goals: 1.2–1.6 grams per kilogram of body weight per day.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="chinese-side">
+            <div class="language-label">繁體中文 Traditional Chinese</div>
+            
+            <h2 class="subsection-title">攝取適合您的份量</h2>
+            <div class="content-box">
+                <ul>
+                    <li>您需要的卡路里取決於您的年齡、性別、身高、體重和身體活動量。</li>
+                    <li>注意份量大小，特別是對於卡路里較高的食物和飲料。</li>
+                    <li>水分補充是整體健康的關鍵因素。選擇水（靜態或氣泡水）和無糖飲料。</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">每餐優先攝取蛋白質食物</h2>
+            <div class="content-box">
+                <ul>
+                    <li>優先選擇高品質、營養密集的蛋白質食物，作為健康飲食模式的一部分。</li>
+                    <li>攝取多種來自動物來源的蛋白質食物，包括雞蛋、家禽、海鮮和紅肉，以及植物來源的蛋白質食物。</li>
+                    <li>將油炸烹飪方法改為烘烤、炙烤、燒烤、炒或烤的烹飪方法。</li>
+                    <li>食用不含或僅含少量添加糖、精製碳水化合物或化學添加劑的肉類。</li>
+                    <li>蛋白質攝取目標：每公斤體重每天1.2–1.6克蛋白質。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page-footer">Page 3</div>
+</div>
+
+<!-- Guidelines Page 2 -->
+<div class="page">
+    <div class="bilingual-section">
+        <div class="english-side">
+            <h2 class="subsection-title">Consume Dairy</h2>
+            <div class="content-box">
+                <ul>
+                    <li>Include full-fat dairy with no added sugars. Dairy is an excellent source of protein, healthy fats, vitamins, and minerals.</li>
+                    <li>Dairy serving goals: 3 servings per day as part of a 2,000-calorie dietary pattern.</li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <h3>Gut Health</h3>
+                <p>Your gut contains trillions of bacteria and other microorganisms called the microbiome. A healthy diet supports a well-balanced microbiome and healthy digestion. Highly processed foods can disrupt this balance, while vegetables, fruits, fermented foods, and high-fiber foods support a diverse microbiome.</p>
+            </div>
+            
+            <h2 class="subsection-title">Eat Vegetables & Fruits Throughout the Day</h2>
+            <div class="content-box">
+                <ul>
+                    <li>Eat a variety of colorful, nutrient-dense vegetables and fruits.</li>
+                    <li>Eat whole vegetables and fruits in their original form. Wash thoroughly prior to eating raw or cooking.</li>
+                    <li>Frozen, dried, or canned options with no or very limited added sugars can also be good choices.</li>
+                    <li>100% fruit or vegetable juice should be consumed in limited portions or diluted with water.</li>
+                    <li>Serving goals: Vegetables 3 servings per day; Fruits 2 servings per day.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="chinese-side">
+            <h2 class="subsection-title">攝取乳製品</h2>
+            <div class="content-box">
+                <ul>
+                    <li>選擇不含添加糖的全脂乳製品。乳製品是蛋白質、健康脂肪、維生素和礦物質的極佳來源。</li>
+                    <li>乳製品攝取目標：作為2,000卡路里飲食模式的一部分，每天3份。</li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <h3>腸道健康</h3>
+                <p>您的腸道含有數萬億的細菌和其他微生物，稱為微生物群。健康的飲食支持微生物群的良好平衡和健康消化。高度加工的食物會破壞這種平衡，而蔬菜、水果、發酵食品和高纖維食物則支持多樣化的微生物群。</p>
+            </div>
+            
+            <h2 class="subsection-title">全天食用蔬菜和水果</h2>
+            <div class="content-box">
+                <ul>
+                    <li>食用多種色彩繽紛、營養密集的蔬菜和水果。</li>
+                    <li>以原始形式食用完整的蔬菜和水果。在生食或烹飪前徹底清洗。</li>
+                    <li>不含或僅含極少量添加糖的冷凍、乾燥或罐裝選項也可以是不錯的選擇。</li>
+                    <li>100%果汁或蔬菜汁應以有限份量飲用或用水稀釋。</li>
+                    <li>攝取目標：蔬菜每天3份；水果每天2份。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page-footer">Page 4</div>
+</div>
+
+<!-- Guidelines Page 3 -->
+<div class="page">
+    <div class="bilingual-section">
+        <div class="english-side">
+            <h2 class="subsection-title">Incorporate Healthy Fats</h2>
+            <div class="content-box">
+                <ul>
+                    <li>Healthy fats are plentiful in many whole foods: meats, poultry, eggs, omega-3 seafood, nuts, seeds, full-fat dairy, olives, and avocados.</li>
+                    <li>When cooking, prioritize oils with essential fatty acids, such as olive oil. Other options include butter or beef tallow.</li>
+                    <li>Saturated fat consumption should not exceed 10% of total daily calories. Limiting processed foods helps meet this goal.</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">Focus on Whole Grains</h2>
+            <div class="content-box">
+                <ul>
+                    <li>Prioritize fiber-rich whole grains.</li>
+                    <li>Significantly reduce highly processed, refined carbohydrates like white bread, ready-to-eat breakfast options, flour tortillas, and crackers.</li>
+                    <li>Whole grains serving goals: 2–4 servings per day.</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">Limit Highly Processed Foods, Added Sugars, & Refined Carbohydrates</h2>
+            <div class="content-box">
+                <ul>
+                    <li>Avoid highly processed packaged foods that are salty or sweet. Prioritize nutrient-dense foods and home-prepared meals.</li>
+                    <li>Limit foods with artificial flavors, petroleum-based dyes, artificial preservatives, and non-nutritive sweeteners.</li>
+                    <li>Avoid sugar-sweetened beverages like sodas, fruit drinks, and energy drinks.</li>
+                    <li>One meal should contain no more than 10 grams of added sugars.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="chinese-side">
+            <h2 class="subsection-title">攝取健康脂肪</h2>
+            <div class="content-box">
+                <ul>
+                    <li>健康脂肪在許多完整食物中含量豐富：肉類、家禽、雞蛋、富含omega-3的海鮮、堅果、種子、全脂乳製品、橄欖和酪梨。</li>
+                    <li>烹飪時，優先選擇含有必需脂肪酸的油，如橄欖油。其他選擇包括奶油或牛油。</li>
+                    <li>飽和脂肪攝取量不應超過每日總卡路里的10%。限制加工食品有助於達成這個目標。</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">專注於全穀物</h2>
+            <div class="content-box">
+                <ul>
+                    <li>優先選擇富含纖維的全穀物。</li>
+                    <li>大幅減少高度加工、精製碳水化合物的攝取，如白麵包、即食早餐選項、麵粉玉米餅和餅乾。</li>
+                    <li>全穀物攝取目標：每天2–4份。</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">限制高度加工食品、添加糖和精製碳水化合物</h2>
+            <div class="content-box">
+                <ul>
+                    <li>避免高度加工的含鹽或甜的包裝食物。優先選擇營養密集的食物和家庭製作的餐點。</li>
+                    <li>限制含有人工香料、石油基染料、人工防腐劑和非營養性甜味劑的食品。</li>
+                    <li>避免含糖飲料，如汽水、果汁飲料和能量飲料。</li>
+                    <li>一餐不應含有超過10克的添加糖。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page-footer">Page 5</div>
+</div>
+
+<!-- Guidelines Page 4 -->
+<div class="page">
+    <div class="bilingual-section">
+        <div class="english-side">
+            <div class="info-box">
+                <h3>Added Sugars</h3>
+                <ul>
+                    <li>Look for ingredients that include "sugar" or "syrup" or end in "-ose."</li>
+                    <li>Added sugars appear under many names: high-fructose corn syrup, agave syrup, corn syrup, fructose, glucose, dextrose, sucrose, honey, molasses, etc.</li>
+                    <li>Naturally occurring sugars in fruits and plain milk are not considered added sugars.</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">Limit Alcoholic Beverages</h2>
+            <div class="content-box">
+                <ul>
+                    <li>Consume less alcohol for better overall health.</li>
+                    <li>People who should completely avoid alcohol include pregnant women, those recovering from alcohol use disorder, and people on medications that interact with alcohol.</li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <h3>Sodium</h3>
+                <ul>
+                    <li>Sodium and electrolytes are essential for hydration. Ages 14+: less than 2,300 mg per day.</li>
+                    <li>Children: Ages 1–3: less than 1,200 mg/day; Ages 4–8: less than 1,500 mg/day; Ages 9–13: less than 1,800 mg/day.</li>
+                    <li>Avoid highly processed foods that are high in sodium.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="chinese-side">
+            <div class="info-box">
+                <h3>添加糖</h3>
+                <ul>
+                    <li>尋找包含「糖」或「糖漿」字樣或以「-ose」結尾的成分。</li>
+                    <li>添加糖以許多名稱出現：高果糖玉米糖漿、龍舌蘭糖漿、玉米糖漿、果糖、葡萄糖、右旋糖、蔗糖、蜂蜜、糖蜜等。</li>
+                    <li>水果和純牛奶中天然存在的糖不被視為添加糖。</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">限制酒精飲料</h2>
+            <div class="content-box">
+                <ul>
+                    <li>減少飲酒以獲得更好的整體健康。</li>
+                    <li>應完全避免飲酒的人包括孕婦、正在從酒精使用障礙中康復的人，以及正在服用與酒精相互作用的藥物的人。</li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <h3>鈉</h3>
+                <ul>
+                    <li>鈉和電解質對於水分補充至關重要。14歲及以上：每天少於2,300毫克。</li>
+                    <li>兒童：1–3歲：每天少於1,200毫克；4–8歲：每天少於1,500毫克；9–13歲：每天少於1,800毫克。</li>
+                    <li>應避免高鈉的高度加工食品。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page-footer">Page 6</div>
+</div>
+
+<!-- Special Populations Page 1 -->
+<div class="page">
+    <div class="section-header">
+        <div class="section-header-en">Special Populations & Considerations</div>
+        <div class="section-header-zh">特殊人群和注意事項</div>
+    </div>
+    
+    <div class="bilingual-section">
+        <div class="english-side">
+            <div class="language-label">English</div>
+            
+            <h2 class="subsection-title">Infancy & Early Childhood (Birth–4 Years)</h2>
+            <div class="content-box">
+                <ul>
+                    <li>For the first 6 months, feed your baby only breast milk. When unavailable, use iron-fortified infant formula.</li>
+                    <li>Continue breastfeeding for 2 years or beyond as mutually desired.</li>
+                    <li>All breastfed infants should receive 400 IU vitamin D supplement daily.</li>
+                    <li>At about 6 months, infants may begin solid foods while continuing breast milk or formula.</li>
+                    <li>Introduce potentially allergenic foods (nut butters, eggs, shellfish, wheat) at about 6 months.</li>
+                    <li>Provide diverse, nutrient-dense foods; avoid processed foods.</li>
+                    <li>Avoid added sugars during infancy and early childhood.</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">Middle Childhood (5–10 Years)</h2>
+            <div class="content-box">
+                <ul>
+                    <li>Focus on whole, nutrient-dense foods.</li>
+                    <li>Full-fat dairy is important for energy and brain development.</li>
+                    <li>Avoid caffeinated beverages.</li>
+                    <li>No added sugars recommended.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="chinese-side">
+            <div class="language-label">繁體中文 Traditional Chinese</div>
+            
+            <h2 class="subsection-title">嬰兒期和幼兒期（出生至4歲）</h2>
+            <div class="content-box">
+                <ul>
+                    <li>在前6個月，僅餵養嬰兒母乳。當無法獲得時，使用強化鐵的嬰兒配方奶。</li>
+                    <li>只要共同期望，就繼續哺乳2年或更長時間。</li>
+                    <li>所有母乳餵養的嬰兒應每天接受400 IU維生素D補充劑。</li>
+                    <li>在大約6個月時，嬰兒可以開始固體食物，同時繼續母乳或配方奶。</li>
+                    <li>在大約6個月時引入潛在的致敏食物（堅果醬、雞蛋、貝類、小麥）。</li>
+                    <li>提供多樣化、營養密集的食物；避免加工食品。</li>
+                    <li>在嬰兒期和幼兒期避免添加糖。</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">兒童中期（5–10歲）</h2>
+            <div class="content-box">
+                <ul>
+                    <li>專注於完整、營養密集的食物。</li>
+                    <li>全脂乳製品對能量和大腦發育很重要。</li>
+                    <li>避免含咖啡因的飲料。</li>
+                    <li>不建議添加糖。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page-footer">Page 7</div>
+</div>
+
+<!-- Special Populations Page 2 -->
+<div class="page">
+    <div class="bilingual-section">
+        <div class="english-side">
+            <h2 class="subsection-title">Adolescence (11–18 Years)</h2>
+            <div class="content-box">
+                <ul>
+                    <li>Rapid growth period with increased needs for energy, protein, calcium, and iron.</li>
+                    <li>Eat nutrient-dense foods; limit sugary drinks and avoid highly processed foods.</li>
+                    <li>Encourage participation in food shopping and cooking.</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">Pregnant Women</h2>
+            <div class="content-box">
+                <ul>
+                    <li>Pregnancy increases nutrient needs. Iron, folate, and iodine are top priorities.</li>
+                    <li>Consume diverse nutrient-dense foods: iron-rich meats, folate-rich greens and legumes, choline-rich eggs, calcium-rich dairy, low-mercury omega-3 seafood.</li>
+                    <li>Talk to your healthcare professional about prenatal vitamins.</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">Lactating Women</h2>
+            <div class="content-box">
+                <ul>
+                    <li>Lactation increases energy and nutrient needs.</li>
+                    <li>Consume vitamin B12-rich proteins, omega-3 seafood, folate-rich legumes, and vitamin A-rich vegetables.</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">Older Adults</h2>
+            <div class="content-box">
+                <p>Some older adults need fewer calories but equal or greater amounts of protein, vitamin B12, vitamin D, and calcium. Prioritize nutrient-dense foods. When intake is insufficient, fortified foods or supplements may be needed under medical supervision.</p>
+            </div>
+        </div>
+        
+        <div class="chinese-side">
+            <h2 class="subsection-title">青春期（11–18歲）</h2>
+            <div class="content-box">
+                <ul>
+                    <li>快速成長期，對能量、蛋白質、鈣和鐵的需求增加。</li>
+                    <li>食用營養密集的食物；限制含糖飲料，避免高度加工食品。</li>
+                    <li>鼓勵參與食品購物和烹飪。</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">孕婦</h2>
+            <div class="content-box">
+                <ul>
+                    <li>懷孕會增加營養需求。鐵、葉酸和碘是首要重點。</li>
+                    <li>攝取多樣化的營養密集食物：富含鐵的肉類、富含葉酸的綠色蔬菜和豆類、富含膽鹼的雞蛋、富含鈣的乳製品、低汞富含omega-3的海鮮。</li>
+                    <li>與醫療保健專業人員討論產前維生素。</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">哺乳婦女</h2>
+            <div class="content-box">
+                <ul>
+                    <li>哺乳會增加能量和營養需求。</li>
+                    <li>攝取富含維生素B12的蛋白質、富含omega-3的海鮮、富含葉酸的豆類和富含維生素A的蔬菜。</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">老年人</h2>
+            <div class="content-box">
+                <p>一些老年人需要更少的卡路里，但需要等量或更多的蛋白質、維生素B12、維生素D和鈣。優先選擇營養密集的食物。當攝取不足時，可能需要在醫療監督下使用強化食品或補充劑。</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page-footer">Page 8</div>
+</div>
+
+<!-- Special Populations Page 3 -->
+<div class="page">
+    <div class="bilingual-section">
+        <div class="english-side">
+            <h2 class="subsection-title">Individuals with Chronic Disease</h2>
+            <div class="content-box">
+                <ul>
+                    <li>Following the Dietary Guidelines can help prevent onset or slow progression of chronic disease.</li>
+                    <li>Individuals with certain chronic diseases may benefit from a lower carbohydrate diet. Consult your healthcare professional.</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">Vegetarians & Vegans</h2>
+            <div class="content-box">
+                <ul>
+                    <li>Consume a variety of whole, protein-rich foods: dairy, eggs, beans, peas, lentils, legumes, nuts, seeds, tofu, or tempeh.</li>
+                    <li>Limit highly processed vegan/vegetarian foods with added fats, sugars, and salt.</li>
+                    <li>Pay attention to nutrient gaps. Vegetarian diets often lack vitamins D and E, choline, and iron. Vegan diets show broader shortfalls.</li>
+                    <li>Monitor nutrient status periodically, especially iron, vitamin B12, vitamin D, calcium, and iodine.</li>
+                    <li>Prioritize targeted supplementation, diversify plant protein sources, and enhance mineral bioavailability.</li>
+                </ul>
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 0.85rem; color: #666;">January 2026</p>
+        </div>
+        
+        <div class="chinese-side">
+            <h2 class="subsection-title">患有慢性疾病的個人</h2>
+            <div class="content-box">
+                <ul>
+                    <li>遵循飲食指南可以幫助預防發病或減緩慢性疾病的進展。</li>
+                    <li>患有某些慢性疾病的個人可能受益於低碳水化合物飲食。請諮詢醫療保健專業人員。</li>
+                </ul>
+            </div>
+            
+            <h2 class="subsection-title">素食者和純素食者</h2>
+            <div class="content-box">
+                <ul>
+                    <li>攝取多種完整、富含蛋白質的食物：乳製品、雞蛋、豆類、豌豆、扁豆、豆科植物、堅果、種子、豆腐或天貝。</li>
+                    <li>限制含有添加脂肪、糖和鹽的高度加工純素/素食食品。</li>
+                    <li>注意營養缺口。素食飲食通常缺乏維生素D和E、膽鹼和鐵。純素飲食顯示出更廣泛的缺乏。</li>
+                    <li>定期監測營養狀況，特別是鐵、維生素B12、維生素D、鈣和碘。</li>
+                    <li>優先考慮有針對性的補充，多樣化植物蛋白來源，並增強礦物質的生物利用度。</li>
+                </ul>
+            </div>
+            
+            <p style="margin-top: 2rem; font-size: 0.85rem; color: #666;">2026年1月</p>
+        </div>
+    </div>
+    
+    <div class="page-footer">Page 9</div>
+</div>
+
+</body>
+</html>
